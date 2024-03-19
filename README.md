@@ -213,4 +213,118 @@ int main(void) {
 }>
 -----------------------------------------------------------------------------------------------------------------------------
 Questão 7:
+<#include <stdio.h>
+
+int main(void) {
+  int mat[4], *p, x;
+//Aqui está sendo atribuidos valores para os elementos da matriz
+  mat[0] = 1;
+  mat[1] = 2;
+  mat[2] = 3;
+  mat[3] = 4;
+  
+ // p = mat + 1; 
+/*Essa expressão é válida. Ou seja, o p aponta para o segundo elemento da matriz "mat".*/
+  p = mat;
+/*Essa expressão é válida. Ou seja, o p aponta para o primeiro elemento da matriz "mat".*/
+  x = (*mat);
+/*Essa expressão é válida. Ou seja, o "*mat" é equivalente ao "mat[0]". Por isso, aponta para o primeiro elemento da matriz.*/
+  
+ printf("Valor de mat[0]: %d\n", mat[0]);
+ printf("Valor de mat[1]: %d\n", mat[1]);
+ printf("Valor de mat[2]: %d\n", mat[2]);
+ printf("Valor de mat[3]: %d\n", mat[3]);
+  printf("Valor de p: %d\n", *p);
+  printf("Valor de x: %d\n", x);
+  
+//Portanto, das seguintes expressões colocadas no código todas são válidas.
+  return 0;
+}>
+-------------------------------------------------------------------------------------------------------------------------------
+Questão 8:
+<#include <stdio.h>
+
+int main(void) {
+  int vet[] = {4, 9, 13};
+  int i;
+// Esse for fica responsável por percorrer o vetor e imprimir cada elemento
+  for(i = 0;i < 3;i ++){
+    
+  printf("%d \n", *(vet+i));
+  }
+// O programa em C imprime os valores do vetor vet[].
+  return 0;
+}
+#include <stdio.h>
+
+int main(void) {
+  
+  int vet[] = {4, 9, 13};
+  int i;
+// Esse for irá percorrer o vetor e imprimir os valores dele.
+  for(i = 0;i < 3;i ++){
+    
+  printf("%X ", vet+i);
+/* Esse printf não irá imprimir o endereço de cada posição do vetor. Pois, o vetor é um ponteiro e ele não está representado corretamente.*/
+  }
+  return 0;
+}>
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Questão 9:
+<#include <stdio.h>
+
+struct teste{
+  int x = 3;
+  char nome[] = "jose";
+};
+
+int main(void) {
+  struct teste *s;
+  printf("%d", s-> x);
+  printf("%s", s-> name);
+}
+  return 0;
+/* O programa não roda porque o compilador não consegue encontrar o valor de x e nem o nome. Ou seja, o programa não terá saída compilada. Porque, devido aos erros de inicialização na definição da estrutura. Justamente por não poderem ser inicializadas com valores no próprio local de definição. */
+}>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Questão 10:
+<#include <stdio.h>
+
+int main(void) {
+  
+  int const *x = 3;
+/*Declarando um ponteiro constate, para a posição de memória 3, mas como não é permitido um valor inteeiro para um ponteiro constante, o código não irá rodar.*/
+  printf("%d", ++ (*x));
+/* Como o valor que pede para imprimir não está apontado um para uma variável válida, pois foi atribuido um endereço fixo. */
+  //Portanto, a saída desse programa não será compilada.
+
+  return 0;
+}>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Questão 11:
+<#include <stdio.h>
+
+int main(void) {
+  char a[4];
+  int b[4];
+  float c[4];
+  double d[4];
+
+  printf("Endereços de memória dos elementos de x:\n");
+  printf("char:   %p\n", (void*)&a[0]);
+  printf("int:    %p\n", (void*)&b[0]);
+  printf("float:  %p\n", (void*)&c[0]);
+  printf("double: %p\n", (void*)&d[0]);
+
+  printf("\nEndereços de memória de x+1, x+2 e x+3:\n");
+  printf("char:   %p %p %p\n", (void*)(a + 1), (void*)(a + 2), (void*)(a + 3));
+  printf("int:    %p %p %p\n", (void*)(b + 1), (void*)(b + 2), (void*) (b + 3));
+  printf("float:  %p %p %p\n", (void*)(c + 1), (void*)(c + 2), (void*)(c + 3));
+  printf("double: %p %p %p\n", (void*)(d + 1), (void*)(d + 2), (void*)(d + 3));
+/* Esse programa irá imprimir na tela, para o usuário, os endereços de memória dos elementos de cada vetor. Logo em seguida, irá imprimir os endereços de memória de x+1, x+2 e x+3. Sendo todas as impressões para cada tipo de dado.*/
+
+  return 0;
+}>
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Questão 12:
 <>
