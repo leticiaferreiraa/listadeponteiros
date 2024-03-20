@@ -305,22 +305,23 @@ Questão 11:
 <#include <stdio.h>
 
 int main(void) {
-  char a[4];
-  int b[4];
-  float c[4];
-  double d[4];
+  
+  char x1[4];
+  int x2[4];
+  float x3[4];
+  double x4[4];
 
   printf("Endereços de memória dos elementos de x:\n");
-  printf("char:   %p\n", (void*)&a[0]);
-  printf("int:    %p\n", (void*)&b[0]);
-  printf("float:  %p\n", (void*)&c[0]);
-  printf("double: %p\n", (void*)&d[0]);
+  printf("char:   %p\n", &x1[0]);
+  printf("int:    %p\n", &x2[0]);
+  printf("float:  %p\n", &x3[0]);
+  printf("double: %p\n", &x4[0]);
 
   printf("\nEndereços de memória de x+1, x+2 e x+3:\n");
-  printf("char:   %p %p %p\n", (void*)(a + 1), (void*)(a + 2), (void*)(a + 3));
-  printf("int:    %p %p %p\n", (void*)(b + 1), (void*)(b + 2), (void*) (b + 3));
-  printf("float:  %p %p %p\n", (void*)(c + 1), (void*)(c + 2), (void*)(c + 3));
-  printf("double: %p %p %p\n", (void*)(d + 1), (void*)(d + 2), (void*)(d + 3));
+  printf("char:   %p %p %p\n", (x1 + 1), (x1 + 2), (x1 + 3));
+  printf("int:    %p %p %p\n", (x2 + 1), (x2 + 2), (x2 + 3));
+  printf("float:  %p %p %p\n", (x3 + 1), (x3 + 2), (x3 + 3));
+  printf("double: %p %p %p\n", (x3 + 1), (x3 + 2), (x3 + 3));
 /* Esse programa irá imprimir na tela, para o usuário, os endereços de memória dos elementos de cada vetor. Logo em seguida, irá imprimir os endereços de memória de x+1, x+2 e x+3. Sendo todas as impressões para cada tipo de dado.*/
 
   return 0;
