@@ -33,7 +33,7 @@ Questão 2:
 <#include <stdio.h>
 
 int main(void) {
-  int i = 4094, *p;
+  int i = 5, *p;
   p = &i;
   printf(" O valor de i é = %d\n\n", i);
   printf("%p %p %d %d %d %d\n", p, p + 1, *p + 2, **&p, 3**p, **&p + 4);
