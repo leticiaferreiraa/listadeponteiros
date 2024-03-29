@@ -45,6 +45,14 @@ int main(void) {
 %d: 3 multiplicado pelo valor apontado por p.
 %d: Valor apontado por *&p incrementado por 4.
 Depois de realizadas as operações, será imprimido o resultado na tela.*/
+/* Portanto, supondo que a variável esteja na posição 4094, o resultado será:
+i: 4094.
+p = &i: 4094.
+p+1: 4094 + 2 = 4096.
+*p+2: O valor apontado por p (que é = 5) + 2 = 5 + 2 = 7.
+**&p: Valor que é o mesmo que i = 5.
+3**p: 3 multiplicado pelo valor apontado por p, que é 5, resultando em 3 * 5 = 15.
+**&p+4: O valor apontado por *&p (que é i) somado a 4, ou seja, 5 + 4 = 9.*/
 
   return 0;
 }>
