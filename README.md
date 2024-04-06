@@ -438,4 +438,125 @@ Em Unix, uma função comum é gettimeofday() ou clock_gettime(). Em Windows, po
 Ou seja, pode então concluir qual implementação é mais eficiente em termos de tempo de execução para o conjunto de dados e o ambiente de execução específicos.>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 19:
-<>
+<#include <stdio.h>
+#include <stdlib.h>
+
+void soma_vet(int *vet1, int *vet2, int *result, int tam) {
+//Condição criada para a realização da soma dos vetores.
+    for (int i = 0; i < tam; i++) {
+        *(result + i) = *(vet1 + i) + *(vet2 + i);
+    }
+}
+int main() {
+    int tam;
+    printf("Olá, digite aqui qual será o tamanho do vetor desejado: ");
+    scanf("%d", &tam);
+    // Alocando uma memória para os vetores
+    int *vet1 = (int *)malloc(tam * sizeof(int));
+    int *vet2 = (int *)malloc(tam* sizeof(int));
+    int *result = (int *)malloc(tam * sizeof(int));
+    printf("Digite aqui os elementos do primeiro vetor:\n");
+    for (int i = 0; i < tam; i++) {
+        scanf("%d", vet1 + i);
+    }
+    printf("Digite aqui os elementos do segundo vetor:\n");
+    for (int i = 0; i < tam; i++) {
+        scanf("%d", vet2 + i);
+    }
+    soma_vet(vet1, vet2, result, tam);
+    printf("Resultado da soma dos vetores:\n");
+    for (int i = 0; i < tam; i++) {
+        printf("%d ", *(result + i));
+    }
+    free(vet1);
+    free(vet2);
+    free(result);
+    return 0;
+  }>
+  ------------------------------------------------------------------------------------------------------------------------------
+  Questão 20:
+  <>
+  -------------------------------------------------------------------------------------------------------------------------------
+  Questão 21:
+  <A void f( ){
+  void *s;
+  s = malloc(50);
+  free(s);
+}
+B int f( ){
+  float *a;
+  return 0;
+}
+C int f(char *data){
+  void *s;
+  s = malloc(50);
+  int size = strlen(data);
+  if (size > 50)
+  return(-1);
+  free(s);
+  return 0;
+}
+D int *f(int n){
+  int *num = malloc(sizeof(int)*n);
+  return num;
+}
+int main(void){
+  int *num;
+  num = f(10);
+  free(num);
+  return 0;
+}
+E void f(int n){
+  char *m = malloc(10);
+  char *n = malloc(10);
+  free(m);
+  m = n;
+  free(m);
+  free(n);
+}
+O trecho que apresenta falhas é o E.
+Ou seja, o ponteiro m é liberado antes de ser atribuído a n.
+Portanto, m = n está dando a n a variável m. Isso faz com que m agora aponte para a mesma posição de memória que n. Assim, como ambas as variáveis estão apontando para a mesma região de memória após m = n, acaba que está liberando a mesma região duas vezes, o que pode causar um comportamento indefinido no código.>
+ --------------------------------------------------------------------------------------------------------------------------------
+  Questão 22:
+  <#include <stdio.h>
+int main(void){
+  int a, b;
+  int x, y, z;
+  scanf("%d %d", &a, &b);
+  x = a; y = b; z = a + b;
+  while (a) {
+  x = x | b;
+  y = y ^ a;
+  z = z & (a+b);
+  a = a >> 1;
+  b = b << 1;
+  }
+  printf ("%d %d %d\n", x, y, z);
+  return 0;
+}
+O código irá ler dois números que serão inseridos pelo usuário em seguida, inicializa três variáveis x, y e z com os valores de a, b e a soma deles. Depois, irá entrar em um loop while onde manipula os bits de a e b através de operações bit a bit.
+Caso o usuário entre com os números 10 e 1, o programa irá resolver o seguinte:
+Na primeira iteração do loop, a será deslocado uma posição para a direita (a >> 1) e b será deslocado uma posição para a esquerda (b << 1). Isso acontece até a se tornar zero.
+Durante as iterações, x é atualizado usando o operador de "OU" bit a bit (x | b), y é atualizado usando o operador de "XOR" bit a bit (y ^ a), e z é atualizado usando o operador de "E" bit a bit (z & (a+b)).
+Após o término do loop, o programa imprime os valores de x, y e z.
+Calculando a = 10 e b = 1:
+Na primeira iteração do loop, a se torna 5 e b se torna 2.
+Na segunda iteração, a se torna 2 e b se torna 4.
+Na terceira iteração, a se torna 1 e b se torna 8.
+Na quarta iteração, a se torna 0 e b se torna 16.
+Após a quarta iteração, o loop termina.
+Calculando os valores de x, y e z:
+x é atualizado em cada iteração do loop com x | b. Isso significa que x sempre conterá um "OU" bit a bit dos valores de a e b a cada iteração. Portanto, o valor final de x será 10 | 1 = 11.
+y é atualizado em cada iteração do loop com y ^ a. Isso significa que y sempre conterá um "XOR" bit a bit dos valores de a e b a cada iteração. Portanto, o valor final de y será 10 ^ 1 = 11.
+z é atualizado em cada iteração do loop com z & (a+b). Isso significa que z sempre conterá um "E" bit a bit dos valores de a e b a cada iteração. Portanto, o valor final de z será 11 & (10+1) = 11.
+Portanto, a saída do programa será: 11 11 11.>
+ ----------------------------------------------------------------------------------------------------------------------------------
+ Questão 23:
+ <>
+ ----------------------------------------------------------------------------------------------------------------------------
+ Questão 24:
+ <>
+ ----------------------------------------------------------------------------------------------------------------------------------
+ Questão 25:
+ <>
