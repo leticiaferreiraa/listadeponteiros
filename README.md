@@ -308,10 +308,6 @@ int main(void) {
   int x2[4];
   float x3[4];
   double x4[4];
-  char *y1 = x1;
-  int *y2 = x2;
-  float *y3 = x3;
-  double *y4 = x4;
    printf("Aqui será mostrado os endereços de memória dos elementos de x:\n");
    printf("char:   %p\n", (void*) &x1[0]);
    printf("int:    %p\n", (void*) &x2[0]);
