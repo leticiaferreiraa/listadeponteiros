@@ -56,7 +56,6 @@ Questão 3:
 int main(void) {
   int i=3,j=5;
   int *p, *q;
-  q = &j; // Esse expressão está correta
   p = &i; // Esse expressão está correta
   // p = &*&i; Esse expressão está correta
   //*q = &j;// Esse expressão não está correta
@@ -65,7 +64,6 @@ int main(void) {
   // i = *&*&j;  Esse expressão está correta
   // q = *p; Esse expressão não está correta
   // i = (*p)++ + *q;  Essa expressão está correta
-
   printf("o valor é: %d\n", *p-*q);
   return 0;
 }>
@@ -210,7 +208,8 @@ int main(void) {
   printf("pulo + 2 = %p\n", pulo + 2);
 // Nessas outras duas impressões são mostradas as posições de memória.
   return 0;
-}>
+}
+Já que o primeiro elemento do array é representado pelo número zero.>
 -----------------------------------------------------------------------------------------------------------------------------
 Questão 7:
 <#include <stdio.h>
@@ -285,7 +284,7 @@ int main(void) {
   printf("%s", s-> name);
 }
   return 0;
-// O programa não será compilado, pois não é possível encontrar o valor de x e nem o nome. Pois, existe erros de inicialização e definições das estruturas das variáveis presentes no código.
+// O programa não será compilado, pois não é possível encontrar o valor de x e nem o nome. Pois, existe erros de definições das estruturas das variáveis presentes no código.
 }>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 10:
@@ -296,7 +295,7 @@ int main(void) {
   int const *x = 3;
 // Declarando um ponteiro constante 3.
   printf("%d", ++ (*x));
-// Como não é permitido um valor inteiro para uma variável constante, o código não roda.
+// Como não é permitido um valor inteiro para uma variável constante, o código não roda e exibirá a mensagem de erro.
 
   return 0;
 }>
@@ -333,26 +332,22 @@ Questao 12:
   int main(void) {
   float aloha[10], coisas[10][5], *pf, value = 2.2;
   int i=3;
-  aloha[2] = value;
-  scanf("%f", &aloha);
-  aloha = "value";//Inválido pois não é possível atribuir uma string a um array de floats
+  aloha[2] = value; // Comando Válido, ou seja o programa irá imprimir um valor de 2.20000
+  scanf("%f", &aloha);// Comando Válido, ou seja irá escrever um valor em float na variável
+  aloha = "value";//Inválido pois não é possível guardar uma string a um array de floats
   printf("%f", aloha);//Inválido pois não é possível imprimir um array de floats
-  coisas[4][4] = aloha[3];
-  coisas[5] = aloha;//Inválido pois não é possível atribuir
+  coisas[4][4] = aloha[3]; //Comando Válido
+  coisas[5] = aloha;//Inválido, pois não é possível atribuir valores
   pf = value;// Inválido pois não é possível atribuir o value a um ponteiro de float 
-  pf = aloha;
-  printf("Hello World\n");
-  return 0;}
-  >
+  pf = aloha; //Comando Válido.
+  return 0;}>
 ----------------------------------------------------------------------------------------------------------
 Questão 13:
-</A memory leak, em tradução livre, vazamento de memória, ocorre quando o programa não libera para o sistema operacional memória que não é mais utilizada. 
-  O problema surge a partir do gerenciamento na alocação dinamica.
+</A memory leak, é um vazamento de memória, ocorre quando o programa não libera para o sistema operacional memória que não é mais utilizada. Ou seja, irá ter um consumo cada vez maior da memória da máquina. O problema surge a partir do gerenciamento na alocação dinamica. As funções usadas são o malloc() e calloc(), elas alocam memórias para o programa, que depois são liberadas.
   Exemplos:
   1-
   #include <stdlib.h>
-
-int main() {
+  int main() {
     int *ptr = (int *)malloc(sizeof(int));
     // Usando ptr para outras operações sem liberar a memória alocada
     return 0;
@@ -571,7 +566,6 @@ int main(void){
   printf ("%d %d %d\n", x, y, z);
   return 0;
 }
-O código irá ler dois números que serão inseridos pelo usuário em seguida, inicializa três variáveis x, y e z com os valores de a, b e a soma deles. Depois, irá entrar em um loop while onde manipula os bits de a e b através de operações bit a bit.
 Caso o usuário entre com os números 10 e 1, o programa irá resolver o seguinte:
 Na primeira iteração do loop, a será deslocado uma posição para a direita (a >> 1) e b será deslocado uma posição para a esquerda (b << 1). Isso acontece até a se tornar zero.
 Durante as iterações, x é atualizado usando o operador de "OU" bit a bit (x | b), y é atualizado usando o operador de "XOR" bit a bit (y ^ a), e z é atualizado usando o operador de "E" bit a bit (z & (a+b)).
