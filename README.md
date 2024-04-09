@@ -404,7 +404,44 @@ void main()
 }>
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 15:
-<>
+<#include <stdio.h>
+#include <stdlib.h>
+
+float valores[] = {10.1, 3.2, 4.9, 9.6, 5.3, 8.4};
+float ordenar (float *array, int n) {
+    int i, j;
+    float temp;
+    for (i = 0; i < n - 1; i++) 
+    {
+        for (j = 0; j < n - i - 1; j++){
+            if (array[j] > array [j + 1]) {
+                temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+}
+int main(void) {
+    int i;
+    float *ordem;
+    float (*pf) (float*, int) = &ordenar;
+    ordem = malloc(6 * sizeof(float));
+    if (ordem == NULL) {
+        printf("Erro de alocação de memória");
+        return 1;
+    }
+    for (i = 0; i < 6; i++) {
+        ordem[i] = valores[i];
+    }
+    pf(ordem, 6);
+    printf("Mostrando que a ordem crescente dos valores são:\n");
+    for (i = 0; i < 6; i++) {
+        printf("%f\n", ordem[i]);
+    }
+    free(ordem);
+    return 0;
+}>
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 16:
 <>
@@ -440,7 +477,6 @@ Ou seja, pode então concluir qual implementação é mais eficiente em termos d
 Questão 19:
 <#include <stdio.h>
 #include <stdlib.h>
-
 void soma_vet(int *vet1, int *vet2, int *result, int tam) {
 //Condição criada para a realização da soma dos vetores.
     for (int i = 0; i < tam; i++) {
@@ -553,7 +589,35 @@ z é atualizado em cada iteração do loop com z & (a+b). Isso significa que z s
 Portanto, a saída do programa será: 11 11 11.>
  ----------------------------------------------------------------------------------------------------------------------------------
  Questão 23:
- <>
+ <#include <stdio.h>
+#define TAM 10
+int funcaol(int vetor[], int v){
+  int i;
+  for (i = 0; i < TAM; i++){
+  if (vetor[i] == v)
+  return i;
+  }
+  return -1;
+}
+int funcao2(int vetor[], int v, int i, int f){
+  int m = (i + f) / 2;
+  if (v == vetor[m])
+  return m;
+  if (i >= f)
+  return -1;
+  if (v > vetor[m])
+  return funcao2(vetor, v, m+l, f);
+  else
+  return funcao2(vetor, v, i, m-1);
+}
+  int main(){
+  int vetor[TAM] = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+  printf("%d - %d", funcao1(vetor, 15), funcao2(vetor, 15, 0, TAM-1));
+  return 0;
+}
+De acordo com o código acima, a resposta correta é a opção VI. I e II, apenas. Pois, a afirmação I está correta porque o resultado da impressão é de fato "7 - 7". 
+A afirmação II está também correta, pois no pior caso, a funcao1 é mais rápida do que a funcao2. 
+A afirmação III está incorreta, pois a funcao2 implementa uma estratégia que é recursiva, não iterativa.>
  ----------------------------------------------------------------------------------------------------------------------------
  Questão 24:
  <>
