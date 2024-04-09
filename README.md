@@ -110,22 +110,22 @@ int main(void) {
   aux = *p3;
   printf(" %c \n", aux);
   //Usando um ponteiro para imprimir a quinta letra da palavra "Ponteiros".
-
+  
   /* (e) */
   p3 = nome;
   printf(" %c \n", *p3);
   //Aqui irá imprimir a primeira letra da palavra "Ponteiros".
-
+  
   /* (f) */
   p3 = p3 + 4;
   printf(" %c \n", *p3);
   // Aqui irá avançar 4 posições e passará para o quinto caracter para depois imprimir a letra "e".
-
+  
   /* (g) */
   p3--;
   printf(" %c \n", *p3);
   //Aqui irá voltar uma posição e imprimir a letra "o".
-
+  
   /* (h) */
   vetor[0] = 31;
   vetor[1] = 45;
@@ -135,30 +135,30 @@ int main(void) {
   printf(" %d \n", idade);
   // Atribuindo os valores de um vetor a uma variável usando ponteiros e imprimindo o resultado logo depois.
   // Ou seja, o primeiro elemento do vetor que será impresso na tela.
-
+  
   /* (i) */
   p5 = p4 + 1;
   idade = *p5;
   printf(" %d \n", idade);
   // Avança uma posição, imprimindo assim, o próximo valor do vetor.
-
+  
   /* (j) */
   p4 = p5 + 1;
   idade = *p4;
   printf(" %d \n", idade);
   // Aqui também irá avançar mais uma posição, consequentemente imprime o próximo valor.
-
+  
   /* (l) */
   p4 = p4 - 2;
   idade = *p4;
   printf(" %d \n", idade);
   // Volta em duas posições e imprime o valor.
-
+  
   /* (m) */
   p5 = &vetor[2] - 1;
   printf(" %d \n", *p5);
   // Define o ponteiro para o último valor do vetor, consequentemente voltando uma posição.
-
+  
   /* (n) */
   p5++;
   printf(" %d \n", *p5);
@@ -169,7 +169,6 @@ int main(void) {
 -------------------------------------------------------------------------------------------------------------------------
 Questão 5:
 <#include <stdio.h>
-
 int main(void){
   float vet[5] = {1.1,2.2,3.3,4.4,5.5};
 //Aqui está criando um array de 5 posições com valores float.
@@ -197,7 +196,6 @@ int main(void){
 ---------------------------------------------------------------------------------------------------------------------------
 Questão 6:
 <#include <stdio.h>
-
 int main(void) {
   int pulo[] = {1, 5, 10, 15, 20, 25};
   printf("*(pulo + 2): %d\n", *(pulo + 2));
@@ -213,7 +211,6 @@ Já que o primeiro elemento do array é representado pelo número zero.>
 -----------------------------------------------------------------------------------------------------------------------------
 Questão 7:
 <#include <stdio.h>
-
 int main(void) {
   int mat[4], *p, x;
 //Aqui está sendo atribuidos valores para os elementos da matriz
@@ -221,7 +218,6 @@ int main(void) {
   mat[1] = 2;
   mat[2] = 3;
   mat[3] = 4;
-  
   p = mat + 1; 
 // Essa expressão é válida. Ou seja, o p aponta para o segundo elemento da matriz "mat".
   //p = mat;
@@ -230,40 +226,33 @@ int main(void) {
 // Essa expressão é inválida. Ou seja, ela mudará o valor de mat como é um ponteiro.
   x = (*mat);
 // Essa expressão é válida. Ou seja, o "*mat" é equivalente ao "mat[0]". Por isso, aponta para o primeiro elemento da matriz.
-  
  printf("Valor de mat[0]: %d\n", mat[0]);
  printf("Valor de mat[1]: %d\n", mat[1]);
  printf("Valor de mat[2]: %d\n", mat[2]);
  printf("Valor de mat[3]: %d\n", mat[3]);
   printf("Valor de p: %d\n", *p);
-  printf("Valor de x: %d\n", x);
-  
+  printf("Valor de x: %d\n", x);  
   return 0;
 }>
 -------------------------------------------------------------------------------------------------------------------------------
 Questão 8:
 <#include <stdio.h>
-
 int main(void) {
   int vet[] = {4, 9, 13};
   int i;
 // Essa condição fica responsável por percorrer o vetor, assim, imprimindo os elementos logo em seguida.
   for(i = 0;i < 3;i ++){
-    
   printf("%d \n", *(vet+i));
   }
 // O programa em C imprime todos os valores do vetor definido.
   return 0;
 }
 #include <stdio.h>
-
 int main(void) {
-  
   int vet[] = {4, 9, 13};
   int i;
 // Essa condição fica responsável por percorrer o vetor, assim, imprimindo os elementos logo em seguida.
-  for(i = 0;i < 3;i ++){
-    
+  for(i = 0;i < 3;i ++){  
   printf("%X ", vet+i);
 // Esse printf não irá imprimir o valor de cada posição do vetor. Pois, o vetor não está representado corretamente, aqui está aparecendo a posição de memória de cada um.
   }
@@ -272,12 +261,10 @@ int main(void) {
 -------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 9:
 <#include <stdio.h>
-
 struct teste{
   int x = 3;
   char nome[] = "jose";
 };
-
 int main(void) {
   struct teste *s;
   printf("%d", s-> x);
@@ -289,14 +276,11 @@ int main(void) {
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 10:
 <#include <stdio.h>
-
 int main(void) {
-  
   int const *x = 3;
 // Declarando um ponteiro constante 3.
   printf("%d", ++ (*x));
 // Como não é permitido um valor inteiro para uma variável constante, o código não roda e exibirá a mensagem de erro.
-
   return 0;
 }>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -370,14 +354,12 @@ int main() {
     recursiveFunction(5);
     return 0;
 }
-Por último, neste exemplo, uma função recursiva recursiveFunction é usada para alocar memória dinamicamente em cada chamada recursiva. No entanto, a memória alocada em cada chamada não é liberada antes de retornar da função. Isso pode levar a um vazamento de memória, especialmente se a recursão for profunda ou se o loop for executado muitas vezes, consumindo mais memória alocada dinamicamente a cada iteração.
-  >
+Por último, neste exemplo, uma função recursiva recursiveFunction é usada para alocar memória dinamicamente em cada chamada recursiva. No entanto, a memória alocada em cada chamada não é liberada antes de retornar da função. Isso pode levar a um vazamento de memória, especialmente se a recursão for profunda ou se o loop for executado muitas vezes, consumindo mais memória alocada dinamicamente a cada iteração.>
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questao 14: 
 <O uso de ponteiros para funções em C serve principalmente para definir, em tempo de execução,
 qual função será executada, sem a necessidade de escrever o nome da função, de forma explícita naquele ponto do código.
 Exemplo:
-
 #include <stdio.h>
 void main()
 {
@@ -397,8 +379,6 @@ void main()
 Questão 15:
 <#include <stdio.h>
 #include <stdlib.h>
-
-float valores[] = {10.1, 3.2, 4.9, 9.6, 5.3, 8.4};
 float ordenar (float *array, int n) {
     int i, j;
     float temp;
@@ -414,20 +394,26 @@ float ordenar (float *array, int n) {
     }
 }
 int main(void) {
-    int i;
+    int i, n;
     float *ordem;
-    float (*pf) (float*, int) = &ordenar;
-    ordem = malloc(6 * sizeof(float));
+    printf("Digite a quantidade de valores a serem ordenados: ");
+    scanf("%d", &n);
+  float valores[n];
+  printf( "Digite os valores a serem ordenados: \n");
+  for (i = 0; i < n; i++){
+    scanf("%f", &valores[i]);
+  }
+    ordem = malloc(n * sizeof(float));
     if (ordem == NULL) {
         printf("Erro de alocação de memória");
         return 1;
     }
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < n; i++) {
         ordem[i] = valores[i];
     }
-    pf(ordem, 6);
+    ordenar(ordem, n);
     printf("Mostrando que a ordem crescente dos valores são:\n");
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < n; i++) {
         printf("%f\n", ordem[i]);
     }
     free(ordem);
@@ -435,10 +421,85 @@ int main(void) {
 }>
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 16:
-<>
+<#include <stdio.h>
+#include <stdlib.h>
+//Função de comparação para o qsort
+int compare(const void* p1, const void* p2){
+  //Converte os ponteiros para inteiros
+  if( *(int*)p1 < *(int*)p2){
+    return -1;
+  }
+  //Se os valores forem iguais, retorna 0
+  if( *(int*)p1 == *(int*)p2){
+    return 0;
+  }
+  //Se os valores forem diferentes, retorna 1
+  if( *(int*)p1 > *(int*)p2){
+    return 1;
+  }
+}
+int main(void) {
+    int i, n;
+    float *ordem;
+    printf("Digite a quantidade de valores a serem ordenados: ");
+    scanf("%d", &n);
+  float valores[n];
+  printf( "Digite os valores a serem ordenados: \n");
+  //Leitura dos valores 
+  for (i = 0; i < n; i++){
+    scanf("%f", &valores[i]);
+  }
+//Aloca memória para o vetor de ponteiros
+    ordem = malloc(n * sizeof(float));
+  //Copia os valores do vetor de float para o vetor de ponteiros
+    if (ordem == NULL) {
+ //Se a alocação de memória falhar, exibe uma mensagem de erro e encerra o programa
+        printf("Erro de alocação de memória");
+        return 1;
+    }
+  //Copia os valores do vetor de float para o vetor de ponteiros
+    for (i = 0; i < n; i++) {
+        ordem[i] = valores[i];
+    }
+  //Ordena o vetor de ponteiros usando a função qsort, que foi usada através da função compare
+    qsort(valores, n, sizeof(float), compare);
+    printf("Mostrando que a ordem crescente dos valores são:\n");
+    for (i = 0; i < n; i++){
+        printf("%f\n", valores[i]);
+    }
+  //Libera a memória alocada
+    free(ordem);
+    return 0;
+}>
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 17:
-<>
+<#include <stdio.h>
+#include <stdlib.h> 
+int compare(const void* p1, const void* p2){
+  if( *(int*)p1 < *(int*)p2){
+    return -1;
+  }
+  if( *(int*)p1 == *(int*)p2){
+    return 0;
+  }
+  if( *(int*)p1 > *(int*)p2){
+    return 1;
+  }
+}
+int main(void){
+  int x[] = {5, 19, 21, 10, -89};
+  int i;
+  printf("Os valores inteiros são: \n");
+  for(i=0; i<5; i++){
+    printf("%d ", x[i]);
+  }
+  printf("\n\n");
+  qsort(x, 5, sizeof(int), compare);
+   printf("Os valores inteiros em ordem crescente são: \n");
+  for(i=0; i<5; i++){
+    printf("%d ", x[i]);
+  }
+}>
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Questão 18:
 <#include <stdio.h>
@@ -502,7 +563,77 @@ int main() {
   }>
   ------------------------------------------------------------------------------------------------------------------------------
   Questão 20:
-  <>
+  <#include <stdio.h>
+#include <stdlib.h>
+
+int multiplica_matrizes(int **A, int **B, int **C, int nl, int nc, int nc2){
+for (int i = 0; i < nl; i++) {
+    for (int j = 0; j < nc2; j++) {
+        C[i][j] = 0;
+        for (int k = 0; k < nc; k++) {
+            C[i][j] += A[i][k] * B[k][j];
+        }
+    }
+}
+}
+int main(void) {
+
+  int **A, **B, **C, nl =2, nc = 3, i, j;
+  int nl2 =3, nc2 = 4;
+  int nlz, ncz;
+
+  A = (int **) malloc(nl*sizeof(int *));
+  for (i=0; i<nl; i++){
+    A[i] = (int *) malloc(nc*sizeof(int));
+}
+    B = (int **) malloc(nl*sizeof(int *));
+    for (i=0; i<nl; i++){
+      B[i] = (int *) malloc(nc*sizeof(int));
+  }
+    C = (int **) malloc(nl*sizeof(int *));
+    for (i=0; i<nl; i++){
+      C[i] = (int *) malloc(nc*sizeof(int));
+  }
+
+  for(i=0; i<nl; i++){
+    for (j=0; j<nc; j++){
+      A[i][j] = i+j;
+    }
+  }
+  for(i=0; i<nl; i++){
+    for (j=0; j<nc; j++){
+      B[i][j] = i+j;
+    }
+  }
+  for(i=0; i<nl; i++){
+    for (j=0; j<nc; j++){
+      C[i][j] = i+j;
+    }
+  }
+  multiplica_matrizes(A,B, C, nl,nc, nc2);
+  printf("Resultado da multiplicação das matrizes:\n");
+  for (int i = 0; i < nl; i++) {
+      for (int j = 0; j < nc2; j++) {
+          printf("%d ", C[i][j]);
+      }
+      printf("\n");
+  }
+
+  for(i=0; i<nl; i++){
+    free(A[i]);
+  }
+free(A);
+
+  for(i=0; i<nl; i++){
+      free(B[i]);
+    }
+  free(B);
+  for(i=0; i<nl; i++){
+      free(C[i]);
+    }
+  free(C);
+  return 0;
+}>
   -------------------------------------------------------------------------------------------------------------------------------
   Questão 21:
   <A void f( ){
